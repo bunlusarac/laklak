@@ -29,7 +29,6 @@ window.onload = () => {
 	chatroomDiv.style.display = 'none';
 
 	copyButton.addEventListener('click', (e) => {
-		console.log("e");
 		var r = document.createRange();
 		r.selectNode(roomIdText);
 		window.getSelection().removeAllRanges();
@@ -52,11 +51,8 @@ window.onload = () => {
 	messageForm.addEventListener('submit', (e) => {
 		e.preventDefault(); //prevent default behavior
 		const messageContent = messageInput.value;
-		console.log(userName);
 		//if input is not empty
 		if(messageContent){
-			console.log(socket.id)
-
 			const messageBundle = { 'username': userName, 
 									'content': messageContent,
 									'timestamp': Date() };
@@ -88,7 +84,6 @@ window.onload = () => {
 							'roomPassword': roomPassword,
 							'timestamp': Date()};
 
-		console.log(joinBundle);
 		socket.emit('join room', joinBundle);
 	});
 
@@ -161,7 +156,6 @@ window.onload = () => {
 			membersDiv.appendChild(memberItem); 
 		}
 
-		console.log("displayswitch");
 		chatroomDiv.style.display = 'flex';
 		roomControlsDiv.style.display = 'none';
 	});
@@ -204,7 +198,6 @@ window.onload = () => {
 	});
 
 	socket.on('notify leave', (leaveBundle) => {
-		console.log(`${leaveBundle['socket-id']} leave notified`);
 		const leavingUserSocketId = leaveBundle['socket-id'];
 		const username = leaveBundle['username'];
 		const timestamp = leaveBundle['timestamp'];
@@ -245,9 +238,6 @@ window.onload = () => {
 	});
 
 	function kickButtonListener(kickSocketId){
-		console.log("Kicking:");
-		console.log(kickSocketId);
-		
 		socket.emit('kick', kickSocketId);
 	}
 

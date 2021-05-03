@@ -30,18 +30,17 @@ app.get('/', (req, res) => {
 
 //When user connected
 io.on('connection', (socket) => {
-	console.log('user connected');
+	console.log('User connected');
 
 	//When user disconnects
 	socket.on('disconnect', () => {
-		console.log('user disconnected');
+		console.log('User disconnected');
 	});
 
 	//When a new chat message event is caught
 	socket.on('chat message', (messageBundle) => {
 		//Emit to all clients except sender
 		const roomId = Array.from(socket.rooms)[1];
-		console.log(roomId);
 		socket.to(roomId).emit('chat message', messageBundle);
 	});
 
@@ -95,7 +94,6 @@ io.on('connection', (socket) => {
 						 'users': {[socket.id]: username}};
 
 		roomsArray[roomId] = newRoom;
-		console.log(roomsArray);
 
 		const adminJoinBundle = {'username': username,
 								 'roomId': roomId,
@@ -108,7 +106,7 @@ io.on('connection', (socket) => {
 
 	socket.on('disconnecting', () => {
 
-		console.log(`${socket.id} leaving`);
+		console.log(`${socket.id} leaving.`);
 		const socketId = socket.id;
 		const socketRoomArray = Array.from(socket.rooms);
 
@@ -128,9 +126,8 @@ io.on('connection', (socket) => {
 
 				//new admin socket id randomization
 				const newAdminSocketId = usersKeys[usersKeys.length * Math.random() << 0];	
-				console.log(`new admin is ${newAdminSocketId} which is ${users[newAdminSocketId]}`);
+				console.log(`New admin is ${newAdminSocketId} which is ${users[newAdminSocketId]}`);
 				roomData['admin-socket-id'] = newAdminSocketId;
-				console.log("admin switched");
 			}	
 			else{
 				//regular member is leaving
@@ -141,7 +138,7 @@ io.on('connection', (socket) => {
 			usersKeys = Object.keys(users); //update
 			if(usersKeys.length == 0){
 				delete roomsArray[roomId];
-				console.log("room destroyed");
+				console.log("Room destroyed.");
 			}
 			else{
 				//notify other member UI's
@@ -165,11 +162,11 @@ io.on('connection', (socket) => {
 
 		if(socket.id == adminSocketId){
 			//proceed kicking
-			console.log("verified");
+			console.log("Verified.");
 			const kickSocket = io.sockets.sockets.get(kickSocketId);
 			kickSocket.emit('kick notify');
 			kickSocket.disconnect();
-			console.log("kicked");
+			console.log("Kicked.");
 		}
 	});
 });
