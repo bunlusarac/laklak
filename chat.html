@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Laklak Chat</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="socket.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class="site-container">
+	<div class="room-controls">
+		<div><img src="/logo.png" class="laklaklogo"></div>
+		<form class="host-room-form">
+			<h2>Host room</h2>
+			<hr>
+			<div>
+			<label for="username">Username:</label>
+			<input type="text" name="username" class="host-room-username-input textinput" required/></div>
+			
+			<div>
+			<label for="password">Room password:</label>
+			<input type="password" name="password" placeholder="optional" class="host-room-password-input textinput"/></div>
+			
+			<div>
+			<label for="name">Room name:</label>
+			<input type="text" name="name" placeholder="optional" class="host-room-name-input textinput"/></div>
+
+			<input type="submit" value="Host room" class="btninput"/>
+		</form>
+
+		<form class="join-room-form">
+			<h2>Join room</h2>
+			<hr>
+			<div>
+			<label for="username">Username:</label>
+			<input type="text" name="username" class="join-room-username-input textinput" required/></div>
+			
+			<div>
+			<label for="id">Room ID:</label>
+			<input type="text" name="id" class="join-room-id-input textinput" required/></div>
+			
+			<div>
+			<label for="password">Room password:</label>
+			<input type="password" name="password" class="join-room-password-input textinput"/></div>
+			
+			<input type="submit" value="Join room" class="btninput"/>
+		</form>
+	</div>
+
+		<div class="chatroom">
+			<div class="sidebar">
+			<h2 class="chatroom-header">Chatroom:</h2>
+			<hr>
+			<div class="room-id-frame"><span class="id-label">Room ID: </span><span class="room-id"> </span>
+			<input type="button" class="copy-btn" value="Copy ID"/></div>
+			
+			<h3 class="number-of-members">Members:</h3>
+			<div class="members"></div>
+		</div>
+			
+		<div class="messagediv">
+			<div class="messages"></div>
+			<form class="message-form">
+				<input type="text" class="message-input textinput msgtextinput" placeholder="type your message here..."/>
+				<input type="submit" value="Send" class="btninput msgbtninput"/>
+			</form>
+		</div>	
+	</div>
+
+
+	<footer>made by brsthegck in 2021</footer>
+	</div>
+</body>
+
+</html>

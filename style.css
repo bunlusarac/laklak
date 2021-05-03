@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+body{
+	font-family: 'Noto Sans KR', sans-serif;
+	background-color: #fa75a0;
+	height: 100%;
+}
+
+html{
+	height: 100%;	
+}
+
+*,*:focus,*:hover{
+    outline:none;
+}
+
+.site-container{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}	
+
+.number-of-members{
+	padding: 5px;
+}
+
+.laklaklogo{
+	width: 200px;
+	height: 200px;
+	display: block;
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.room-controls{
+	text-align: center;	
+	flex: 95; /*E*/
+
+}
+
+.id-label{
+	font-weight: 500;
+}
+
+hr{
+	margin-bottom: 20px;
+	height:1px;
+	border-width:0;
+	color: lightgray;
+	background-color:lightgray;
+}
+
+.host-room-form{
+	background: white;
+	border-radius: 10px;
+		padding: 10px;
+	/*padding-bottom: 10px;*/
+	margin: 20px;
+	width: 40%	;
+
+	display: block;
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.join-room-form{
+	background: white;
+	border-radius: 10px;
+
+	/*
+	padding-bottom: 10px;*/
+		padding: 10px;
+	margin: 20px;
+	width: 40%;
+	display: block;
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.room-id-frame{
+	background-color: #faf3a5;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.chatroom{
+	color: #383838;
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	flex: 95; /*E*/
+}
+
+.sidebar{
+	color: #383838;
+	background: white;
+	border-radius: 10px;
+	margin: 5px;
+	padding: 10px;
+	padding-left:15px;
+	padding-right: 15px;
+	flex: 3;
+
+}
+
+.message{
+}
+
+.messages{
+  	flex: 95;
+}
+
+.messagediv{
+	border-radius: 10px;
+	background-color: white;
+	margin: 5px;
+	flex: 7;
+
+	display: flex;
+	flex-direction: column;
+
+	padding: 10px;
+	padding-left:15px;
+	padding-right: 15px;
+	/*
+	height: 100%;
+	width: 100%;*/
+}
+
+.copy-btn{
+	font-family: 'Noto Sans KR', sans-serif;
+	border-radius: 5px;
+	border: 0;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 5px;	
+	font-weight: 500;
+	color: #383838;
+	background-color: #f7f7f7;
+}
+
+.copy-btn:hover{
+	background-color: #ffffff;
+}
+
+.copy-btn:active{
+	background-color: #b4b4b4;
+}
+
+.kick-btn{
+	font-family: 'Noto Sans KR', sans-serif;
+	border-radius: 5px;
+	border: 0;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 5px;	
+	font-weight: 500;
+	color: #383838;
+	background-color: #f7f7f7;
+}
+.members{
+	padding: 2px;
+}
+.kick-btn:hover{
+	background-color: #ff4040;
+	color: white;
+}
+
+.kick-btn:active{
+	background-color: #a32727;
+	color: white;
+}
+
+label{
+	color: #383838;
+	display: inline-block;
+	width: 150px;
+	text-align: left;
+	padding: 5px;	
+}
+
+.message-form{
+	display: flex;
+	flex: 1;
+}
+
+
+.msgbtninput{	
+	flex: 5;
+}
+
+.msgtextinput{
+	flex: 95;
+}
+
+.textinput{
+	border-radius: 5px;
+	border: 0;
+	padding: 10px;
+	margin: 2px;
+	font-family: 'Noto Sans KR', sans-serif;
+	background-color: #f2f2f2;
+}
+
+.textinput::placeholder{
+	color: #bdbdbd;
+}
+
+.btninput{
+	border-radius: 5px;
+	border: 0;
+	padding: 10px;
+	margin: 2px;
+	font-family: 'Noto Sans KR', sans-serif;
+	width: 100px;	
+	background-color: #ff7040;
+	color: white;
+	font-weight: 500;
+}
+
+.btninput:hover{
+	background-color: #ff7d52;
+}
+
+.btninput:active{
+	background-color: #ff551c;
+}
+
+.textinput:hover{
+	background-color: #fafafa;
+}
+
+.textinput:active{
+	background-color: #e0e0e0;
+}
+
+h2{
+	text-align: center;
+	margin: 0;
+	color: #383838;
+}
+
+h3{
+	margin: 0;
+	color: #383838;
+}
+
+footer{
+	text-align: center;
+	color: #bd5778;
+	padding: 25px;
+	flex: 5; /*E*/
+}
