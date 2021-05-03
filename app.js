@@ -8,12 +8,8 @@ const favicon = require('serve-favicon');
 const { v4: uuidv4 } = require('uuid');
 
 //array that contains currently available rooms
-const roomsArray = {'123': {'password': '123', 
-							  'name': 'test odasi',
-							  'admin-socket-id': '123',
-							  'users': {'123': 'admin'}}};
+const roomsArray = {'123': {'password': '123', 'name': 'test odasi', 'admin-socket-id': '123', 'users': {'123': 'admin'}}};
 							
-
 app.use(favicon(__dirname + '/favicon.png'))
 
 app.get('/socket.js', (req, res) => {
@@ -44,8 +40,6 @@ io.on('connection', (socket) => {
 	//When a new chat message event is caught
 	socket.on('chat message', (messageBundle) => {
 		//Emit to all clients except sender
-		//This assumes that the socket has joined to a room
-		//Disable all chatroom controls before joining/hosting!!!!!!!!
 		const roomId = Array.from(socket.rooms)[1];
 		console.log(roomId);
 		socket.to(roomId).emit('chat message', messageBundle);
@@ -62,7 +56,6 @@ io.on('connection', (socket) => {
 			socket.emit('join fail');
 		}
 		else{
-			//Room authentication here, unhash the password and compare
 			if(roomsArray[roomId]['password'] == roomPassword){
 				socket.join(roomId);
 				console.log(`Socket with ID ${socket.id} joined to room with ID ${roomId}`);
@@ -101,7 +94,6 @@ io.on('connection', (socket) => {
 						 'admin-socket-id': socket.id,
 						 'users': {[socket.id]: username}};
 
-		//This is for mockup purposes, this will be changed to Redis query
 		roomsArray[roomId] = newRoom;
 		console.log(roomsArray);
 
@@ -178,9 +170,6 @@ io.on('connection', (socket) => {
 			kickSocket.emit('kick notify');
 			kickSocket.disconnect();
 			console.log("kicked");
-		}
-		else{
-			console.log("GO AWAY YOU HACKER");
 		}
 	});
 });
